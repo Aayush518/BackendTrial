@@ -26,8 +26,8 @@ restaurant_model = api.model("Restaurant", {
     "longitude": fields.Float,
     "search_vector": fields.String,
     "city": fields.String,
-    "categories": fields.List(fields.String),
-    "users": fields.List(fields.String)
+    "categories": fields.List(fields.String(attribute="name")),  # Adjusted the field name to match the model
+    "users": fields.List(fields.String(attribute="email"))  # Adjusted the field name to match the model
 })
 
 # Define the Visit model
@@ -35,8 +35,8 @@ visit_model = api.model("Visit", {
     "visit_id": fields.Integer,
     "user_id": fields.Integer,
     "restaurant_id": fields.Integer,
-    "user": fields.String,
-    "restaurant": fields.String
+    "user": fields.String(attribute="email"),  # Adjusted the field name to match the model
+    "restaurant": fields.String(attribute="name")  # Adjusted the field name to match the model
 })
 
 # Define the City model
@@ -76,6 +76,6 @@ connection_model = api.model("Connection", {
     "user_a_id": fields.Integer,
     "user_b_id": fields.Integer,
     "status": fields.String,
-    "user_a": fields.String,
-    "user_b": fields.String
+    "user_a": fields.String(attribute="email"),  # Adjusted the field name to match the model
+    "user_b": fields.String(attribute="email")  # Adjusted the field name to match the model
 })

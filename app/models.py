@@ -1,4 +1,5 @@
 from .extensions import db, api
+import sqlalchemy_utils 
 from sqlalchemy_searchable import make_searchable
 from sqlalchemy_utils.types import TSVectorType
 import datetime

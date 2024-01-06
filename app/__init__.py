@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from .extensions import api, db
 from .resources import ns
 from .models import *
+from .api_models import *
 
 
 def create_app():
@@ -16,5 +17,6 @@ def create_app():
 
 
     api.add_namespace(ns)
+
 
     return app
